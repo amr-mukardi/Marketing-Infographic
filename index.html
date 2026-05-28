@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketPulse - Marketing Analytics Infographic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #3730A3;
+            --primary-light: #818CF8;
+            --cyan: #06B6D4;
+            --amber: #F59E0B;
+            --pink: #EC4899;
+            --bg: #F1F5F9;
+            --surface: #FFFFFF;
+            --text: #1E293B;
+            --text-secondary: #64748B;
+            --border: #E2E8F0;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 15px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.04);
+            --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.12);
+            --radius-sm: 10px;
+            --radius: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-en: 'Inter', 'Cairo', sans-serif;
+            --font-ar: 'Cairo', 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-en);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: font-family 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body.rtl {
+            font-family: var(--font-ar);
+            direction: rtl;
+            text-align: right;
+        }
+
+        /* Background Orbs */
+        .bg-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            animation: orbFloat 18s ease-in-out infinite;
+        }
+        .bg-orb:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            background: #6366F1;
+            top: -10%;
+            left: -8%;
+            animation-delay: 0s;
+        }
+        .bg-orb:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            background: #06B6D4;
+            top: 50%;
+            right: -10%;
+            animation-delay: -6s;
+            animation-duration: 20s;
+        }
+        .bg-orb:nth-child(3) {
+            width: 350px;
+            height: 350px;
+            background: #EC4899;
+            bottom: -8%;
+            left: 30%;
+            animation-delay: -12s;
+            animation-duration: 22s;
+        }
+        @keyframes orbFloat {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(60px, -40px) scale(1.1);
+            }
+            50% {
+                transform: translate(-30px, 50px) scale(0.9);
+            }
+            75% {
+                transform: translate(-50px, -30px) scale(1.05);
+            }
+        }
+
+        /* Main Container */
+        .main-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 24px 40px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            margin-bottom: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all var(--transition);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .header-logo {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #4F46E5, #7C3AED);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            font-weight: 800;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+        }
+        .header-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+            color: #1E293B;
+        }
+        .header-subtitle {
+            font-size: 0.8rem;
+            color: #64748B;
+            font-weight: 500;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            background: #F1F5F9;
+            border-radius: 50px;
+            padding: 4px;
+            gap: 2px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+            flex-shrink: 0;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            border: 1px solid #E2E8F0;
+        }
+        .lang-switcher .lang-option {
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+            cursor: pointer;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            color: #64748B;
+        }
+        .lang-switcher .lang-option.active {
+            color: #FFFFFF;
+        }
+        .lang-switcher .slider {
+            position: absolute;
+            top: 4px;
+            height: calc(100% - 8px);
+            border-radius: 50px;
+            background: linear-gradient(135deg, #4F46E5, #6366F1);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 0;
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.4);
+        }
+        body:not(.rtl) .lang-switcher .slider {
+            left: 4px;
+            width: 44px;
+        }
+        body.rtl .lang-switcher .slider {
+            right: 4px;
+            width: 44px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+            color: #1E293B;
+        }
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: #64748B;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .stat-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 22px 20px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all var(--transition);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: #E2E8F0;
+        }
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+        .stat-card:nth-child(1)::before {
+            background: linear-gradient(90deg, #4F46E5, #818CF8);
+        }
+        .stat-card:nth-child(2)::before {
+            background: linear-gradient(90deg, #06B6D4, #22D3EE);
+        }
+        .stat-card:nth-child(3)::before {
+            background: linear-gradient(90deg, #F59E0B, #FBBF24);
+        }
+        .stat-card:nth-child(4)::before {
+            background: linear-gradient(90deg, #EC4899, #F472B6);
+        }
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 6px;
+            display: block;
+        }
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #1E293B, #334155);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: #64748B;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        /* Charts Section */
+        .charts-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+        .chart-panel {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid transparent;
+            transition: all var(--transition);
+        }
+        .chart-panel:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: #E2E8F0;
+        }
+        .chart-panel h3 {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+        .donut-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .donut-canvas-wrap {
+            position: relative;
+            flex-shrink: 0;
+        }
+        canvas#donutChart {
+            cursor: pointer;
+            display: block;
+        }
+        .donut-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .donut-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 8px;
+            transition: all var(--transition);
+        }
+        .donut-legend-item:hover {
+            background: #F8FAFC;
+        }
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+        .legend-dot.dot-indigo {
+            background: #6366F1;
+        }
+        .legend-dot.dot-cyan {
+            background: #06B6D4;
+        }
+        .legend-dot.dot-amber {
+            background: #F59E0B;
+        }
+        .legend-dot.dot-pink {
+            background: #EC4899;
+        }
+        .legend-percent {
+            margin-left: auto;
+            color: #64748B;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+        body.rtl .legend-percent {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        /* Bar Chart */
+        .bar-chart-container {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 260px;
+            padding: 0 8px;
+            gap: 6px;
+            position: relative;
+        }
+        .bar-chart-container::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #E2E8F0;
+            border-radius: 1px;
+        }
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            max-width: 60px;
+            z-index: 1;
+        }
+        .bar-value-label {
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: #1E293B;
+            transition: all 0.5s ease;
+        }
+        .bar-fill {
+            width: 100%;
+            max-width: 48px;
+            border-radius: 8px 8px 4px 4px;
+            transition: height 0.8s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+            position: relative;
+            cursor: pointer;
+            min-height: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .bar-fill:hover {
+            filter: brightness(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+            transform: translateY(-2px);
+        }
+        .bar-fill.bar-1 {
+            background: linear-gradient(180deg, #6366F1, #4F46E5);
+        }
+        .bar-fill.bar-2 {
+            background: linear-gradient(180deg, #818CF8, #6366F1);
+        }
+        .bar-fill.bar-3 {
+            background: linear-gradient(180deg, #06B6D4, #0891B2);
+        }
+        .bar-fill.bar-4 {
+            background: linear-gradient(180deg, #22D3EE, #06B6D4);
+        }
+        .bar-fill.bar-5 {
+            background: linear-gradient(180deg, #F59E0B, #D97706);
+        }
+        .bar-fill.bar-6 {
+            background: linear-gradient(180deg, #EC4899, #DB2777);
+        }
+        .bar-month-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #64748B;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .feature-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 24px 18px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all var(--transition);
+            border: 1px solid transparent;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+            border-color: #E2E8F0;
+        }
+        .feature-card .feature-icon-wrap {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            transition: all var(--transition);
+        }
+        .feature-card:nth-child(1) .feature-icon-wrap {
+            background: #EEF2FF;
+            color: #4F46E5;
+        }
+        .feature-card:nth-child(2) .feature-icon-wrap {
+            background: #ECFEFF;
+            color: #06B6D4;
+        }
+        .feature-card:nth-child(3) .feature-icon-wrap {
+            background: #FFFBEB;
+            color: #F59E0B;
+        }
+        .feature-card:nth-child(4) .feature-icon-wrap {
+            background: #FDF2F8;
+            color: #EC4899;
+        }
+        .feature-card h4 {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+        }
+        .feature-card p {
+            font-size: 0.8rem;
+            color: #64748B;
+            line-height: 1.5;
+        }
+
+        /* Timeline */
+        .timeline-section {
+            margin-bottom: 28px;
+        }
+        .timeline {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            position: relative;
+            padding: 0 10px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 40px;
+            right: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #6366F1, #06B6D4, #F59E0B, #EC4899);
+            border-radius: 2px;
+            z-index: 0;
+        }
+        .timeline-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            cursor: default;
+        }
+        .timeline-dot {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #FFF;
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition);
+            flex-shrink: 0;
+        }
+        .timeline-step:nth-child(1) .timeline-dot {
+            background: #6366F1;
+        }
+        .timeline-step:nth-child(2) .timeline-dot {
+            background: #06B6D4;
+        }
+        .timeline-step:nth-child(3) .timeline-dot {
+            background: #F59E0B;
+        }
+        .timeline-step:nth-child(4) .timeline-dot {
+            background: #EC4899;
+        }
+        .timeline-step:hover .timeline-dot {
+            transform: scale(1.15);
+            box-shadow: var(--shadow-xl);
+        }
+        .timeline-step h4 {
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: -0.01em;
+        }
+        .timeline-step p {
+            font-size: 0.75rem;
+            color: #64748B;
+            line-height: 1.4;
+            max-width: 160px;
+        }
+
+        /* CTA */
+        .cta-banner {
+            background: linear-gradient(135deg, #4F46E5, #7C3AED, #6366F1);
+            border-radius: var(--radius-lg);
+            padding: 36px 32px;
+            text-align: center;
+            color: #FFF;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .cta-banner::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 60%),
+                radial-gradient(circle at 70% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .cta-banner h2 {
+            font-weight: 900;
+            font-size: 1.8rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-banner p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: #FFF;
+            color: #4F46E5;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            transition: all var(--transition);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+            background: #F8FAFC;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 16px;
+            color: #94A3B8;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .charts-row {
+                grid-template-columns: 1fr;
+            }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .timeline {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            .timeline::before {
+                display: none;
+            }
+            .timeline-step {
+                flex: 0 0 calc(50% - 10px);
+            }
+        }
+        @media (max-width: 640px) {
+            .stats-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .stat-value {
+                font-size: 1.5rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            .header-brand {
+                justify-content: center;
+            }
+            .lang-switcher {
+                align-self: center;
+            }
+            .bar-chart-container {
+                height: 180px;
+            }
+            .cta-banner h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Orbs -->
+    <div class="bg-orbs">
+        <div class="bg-orb"></div>
+        <div class="bg-orb"></div>
+        <div class="bg-orb"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-brand">
+                <div class="header-logo">◆</div>
+                <div>
+                    <div class="header-title">MarketPulse</div>
+                    <div class="header-subtitle" data-i18n="headerSubtitle">Marketing Analytics Platform</div>
+                </div>
+            </div>
+            <div class="lang-switcher" id="langSwitcher" title="Switch Language / تبديل اللغة">
+                <div class="slider" id="langSlider"></div>
+                <span class="lang-option active" data-lang="en">🇬🇧 EN</span>
+                <span class="lang-option" data-lang="ar">🇸🇦 AR</span>
+            </div>
+        </header>
+
+        <!-- Stats Row -->
+        <section class="stats-row" id="statsRow">
+            <div class="stat-card">
+                <span class="stat-icon">👥</span>
+                <div class="stat-value"><span class="counter" data-target="50" data-suffix="K+">0</span></div>
+                <div class="stat-label" data-i18n="statUsers">Active Users</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">📈</span>
+                <div class="stat-value"><span class="counter" data-target="320" data-suffix="%">0</span></div>
+                <div class="stat-label" data-i18n="statROI">ROI Increase</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">📋</span>
+                <div class="stat-value"><span class="counter" data-target="12500" data-suffix="" data-format="compact">0</span></div>
+                <div class="stat-label" data-i18n="statCampaigns">Campaigns Managed</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">💰</span>
+                <div class="stat-value"><span class="counter" data-target="48" data-prefix="$" data-suffix="M">0</span></div>
+                <div class="stat-label" data-i18n="statRevenue">Revenue Generated</div>
+            </div>
+        </section>
+
+        <!-- Charts Row -->
+        <section class="charts-row">
+            <div class="chart-panel" id="donutPanel">
+                <h3 data-i18n="chartDonutTitle">📊 Budget Allocation</h3>
+                <div class="donut-wrapper">
+                    <div class="donut-canvas-wrap">
+                        <canvas id="donutChart" width="280" height="280" aria-label="Donut chart showing budget allocation"></canvas>
+                    </div>
+                    <div class="donut-legend" id="donutLegend">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+            <div class="chart-panel" id="barPanel">
+                <h3 data-i18n="chartBarTitle">📶 Campaign Performance</h3>
+                <div class="bar-chart-container" id="barChartContainer">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon-wrap">🧠</div>
+                <h4 data-i18n="feature1Title">AI-Powered Analytics</h4>
+                <p data-i18n="feature1Desc">Deep learning algorithms that uncover hidden patterns in your marketing data.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-wrap">⚡</div>
+                <h4 data-i18n="feature2Title">Real-Time Dashboard</h4>
+                <p data-i18n="feature2Desc">Live metrics and KPIs updated instantly across all your campaigns.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-wrap">🔬</div>
+                <h4 data-i18n="feature3Title">A/B Testing Suite</h4>
+                <p data-i18n="feature3Desc">Run controlled experiments to optimize every aspect of your funnel.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-wrap">🤖</div>
+                <h4 data-i18n="feature4Title">Marketing Automation</h4>
+                <p data-i18n="feature4Desc">Automate repetitive tasks and nurture leads with intelligent workflows.</p>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="timeline-section chart-panel">
+            <h3 style="margin-bottom:20px;font-weight:700;font-size:1.1rem;" data-i18n="timelineTitle">🚀 How It Works</h3>
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="timeline-dot">1</div>
+                    <h4 data-i18n="timelineStep1Title">Connect Data</h4>
+                    <p data-i18n="timelineStep1Desc">Integrate all your marketing channels in one click.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot">2</div>
+                    <h4 data-i18n="timelineStep2Title">Analyze Insights</h4>
+                    <p data-i18n="timelineStep2Desc">AI processes data and surfaces actionable insights.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot">3</div>
+                    <h4 data-i18n="timelineStep3Title">Optimize Campaigns</h4>
+                    <p data-i18n="timelineStep3Desc">Apply data-driven recommendations automatically.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot">4</div>
+                    <h4 data-i18n="timelineStep4Title">Scale Growth</h4>
+                    <p data-i18n="timelineStep4Desc">Watch your ROI grow as the system continuously improves.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-banner">
+            <h2 data-i18n="ctaTitle">Ready to Transform Your Marketing?</h2>
+            <p data-i18n="ctaDesc">Join 50,000+ marketers who use MarketPulse to drive smarter decisions.</p>
+            <button class="cta-btn" data-i18n="ctaBtn" onclick="alert('🚀 Demo request submitted!')">Get Free Demo →</button>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <span data-i18n="footerText">© 2026 MarketPulse. All rights reserved. Built with precision.</span>
+        </footer>
+    </div>
+
+    <script>
+        (function() {
+            // ==================== TRANSLATIONS ====================
+            const translations = {
+                en: {
+                    headerSubtitle: 'Marketing Analytics Platform',
+                    statUsers: 'Active Users',
+                    statROI: 'ROI Increase',
+                    statCampaigns: 'Campaigns Managed',
+                    statRevenue: 'Revenue Generated',
+                    chartDonutTitle: '📊 Budget Allocation',
+                    chartBarTitle: '📶 Campaign Performance',
+                    feature1Title: 'AI-Powered Analytics',
+                    feature1Desc: 'Deep learning algorithms that uncover hidden patterns in your marketing data.',
+                    feature2Title: 'Real-Time Dashboard',
+                    feature2Desc: 'Live metrics and KPIs updated instantly across all your campaigns.',
+                    feature3Title: 'A/B Testing Suite',
+                    feature3Desc: 'Run controlled experiments to optimize every aspect of your funnel.',
+                    feature4Title: 'Marketing Automation',
+                    feature4Desc: 'Automate repetitive tasks and nurture leads with intelligent workflows.',
+                    timelineTitle: '🚀 How It Works',
+                    timelineStep1Title: 'Connect Data',
+                    timelineStep1Desc: 'Integrate all your marketing channels in one click.',
+                    timelineStep2Title: 'Analyze Insights',
+                    timelineStep2Desc: 'AI processes data and surfaces actionable insights.',
+                    timelineStep3Title: 'Optimize Campaigns',
+                    timelineStep3Desc: 'Apply data-driven recommendations automatically.',
+                    timelineStep4Title: 'Scale Growth',
+                    timelineStep4Desc: 'Watch your ROI grow as the system continuously improves.',
+                    ctaTitle: 'Ready to Transform Your Marketing?',
+                    ctaDesc: 'Join 50,000+ marketers who use MarketPulse to drive smarter decisions.',
+                    ctaBtn: 'Get Free Demo →',
+                    footerText: '© 2026 MarketPulse. All rights reserved. Built with precision.',
+                    donutSegments: [
+                        { label: 'Digital Ads', pct: 40 },
+                        { label: 'Content Marketing', pct: 25 },
+                        { label: 'Social Media', pct: 20 },
+                        { label: 'Email Marketing', pct: 15 },
+                    ],
+                    barMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    barValues: [65, 72, 58, 85, 78, 92],
+                    donutCenter: 'Budget',
+                },
+                ar: {
+                    headerSubtitle: 'منصة تحليلات تسويقية',
+                    statUsers: 'المستخدمين النشطين',
+                    statROI: 'زيادة العائد على الاستثمار',
+                    statCampaigns: 'الحملات المدارة',
+                    statRevenue: 'الإيرادات المحققة',
+                    chartDonutTitle: '📊 توزيع الميزانية',
+                    chartBarTitle: '📶 أداء الحملات',
+                    feature1Title: 'تحليلات بالذكاء الاصطناعي',
+                    feature1Desc: 'خوارزميات تعلم عميق تكشف الأنماط المخفية في بياناتك التسويقية.',
+                    feature2Title: 'لوحة بيانات فورية',
+                    feature2Desc: 'مقاييس ومؤشرات أداء مباشرة تُحدث فورياً عبر جميع حملاتك.',
+                    feature3Title: 'مجموعة اختبار A/B',
+                    feature3Desc: 'إجراء تجارب مضبوطة لتحسين كل جانب من جوانب مسار التحويل.',
+                    feature4Title: 'أتمتة التسويق',
+                    feature4Desc: 'أتمتة المهام المتكررة ورعاية العملاء المحتملين بذكاء.',
+                    timelineTitle: '🚀 كيف يعمل',
+                    timelineStep1Title: 'ربط البيانات',
+                    timelineStep1Desc: 'دمج جميع قنوات التسويق بنقرة واحدة.',
+                    timelineStep2Title: 'تحليل الرؤى',
+                    timelineStep2Desc: 'يعالج الذكاء الاصطناعي البيانات ويقدم رؤى قابلة للتنفيذ.',
+                    timelineStep3Title: 'تحسين الحملات',
+                    timelineStep3Desc: 'تطبيق التوصيات المبنية على البيانات تلقائياً.',
+                    timelineStep4Title: 'توسيع النمو',
+                    timelineStep4Desc: 'شاهد عائد استثمارك ينمو مع تحسن النظام المستمر.',
+                    ctaTitle: 'هل أنت مستعد لتطوير تسويقك؟',
+                    ctaDesc: 'انضم إلى أكثر من 50,000 مسوق يستخدمون ماركت بالس لاتخاذ قرارات أكثر ذكاءً.',
+                    ctaBtn: 'احصل على عرض توضيحي ←',
+                    footerText: '© 2026 ماركت بالس. جميع الحقوق محفوظة. صُنع بإتقان.',
+                    donutSegments: [
+                        { label: 'الإعلانات الرقمية', pct: 40 },
+                        { label: 'تسويق المحتوى', pct: 25 },
+                        { label: 'وسائل التواصل', pct: 20 },
+                        { label: 'البريد الإلكتروني', pct: 15 },
+                    ],
+                    barMonths: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو'],
+                    barValues: [65, 72, 58, 85, 78, 92],
+                    donutCenter: 'الميزانية',
+                },
+            };
+
+            // ==================== STATE ====================
+            let currentLang = localStorage.getItem('marketpulse_lang') || 'en';
+            let donutHoveredIndex = -1;
+            let donutAnimProgress = 0;
+            let donutAnimId = null;
+            const donutColors = ['#6366F1', '#06B6D4', '#F59E0B', '#EC4899'];
+            const donutColorsHover = ['#7C75F5', '#2DD4E8', '#FBBF24', '#F472B6'];
+
+            // ==================== DOM REFS ====================
+            const body = document.body;
+            const htmlEl = document.documentElement;
+            const langSwitcher = document.getElementById('langSwitcher');
+            const langSlider = document.getElementById('langSlider');
+            const langOptions = langSwitcher.querySelectorAll('.lang-option');
+            const donutCanvas = document.getElementById('donutChart');
+            const donutCtx = donutCanvas.getContext('2d');
+            const donutLegend = document.getElementById('donutLegend');
+            const barChartContainer = document.getElementById('barChartContainer');
+            const statsRow = document.getElementById('statsRow');
+            const counterEls = document.querySelectorAll('.counter');
+
+            // ==================== LANGUAGE ====================
+            function getT(key) {
+                return translations[currentLang][key] || key;
+            }
+
+            function applyLanguage() {
+                // Update dir
+                if (currentLang === 'ar') {
+                    htmlEl.setAttribute('dir', 'rtl');
+                    htmlEl.setAttribute('lang', 'ar');
+                    body.classList.add('rtl');
+                } else {
+                    htmlEl.setAttribute('dir', 'ltr');
+                    htmlEl.setAttribute('lang', 'en');
+                    body.classList.remove('rtl');
+                }
+
+                // Update all i18n elements
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[currentLang][key]) {
+                        el.textContent = translations[currentLang][key];
+                    }
+                });
+
+                // Update lang switcher
+                langOptions.forEach(opt => {
+                    opt.classList.toggle('active', opt.getAttribute('data-lang') === currentLang);
+                });
+
+                // Update slider position
+                updateSliderPosition();
+
+                // Redraw charts
+                drawDonutChart();
+                buildBarChart();
+                resetCounters();
+
+                // Save preference
+                localStorage.setItem('marketpulse_lang', currentLang);
+            }
+
+            function updateSliderPosition() {
+                const activeOpt = langSwitcher.querySelector('.lang-option.active');
+                if (activeOpt && langSlider) {
+                    const optWidth = activeOpt.offsetWidth;
+                    langSlider.style.width = optWidth + 'px';
+                    if (currentLang === 'ar') {
+                        const optRight = activeOpt.offsetLeft;
+                        langSlider.style.left = 'auto';
+                        langSlider.style.right = (activeOpt.offsetLeft - langSwitcher.offsetLeft) + 'px';
+                    } else {
+                        langSlider.style.right = 'auto';
+                        langSlider.style.left = (activeOpt.offsetLeft - langSwitcher.offsetLeft) + 'px';
+                    }
+                }
+            }
+
+            langSwitcher.addEventListener('click', (e) => {
+                const opt = e.target.closest('.lang-option');
+                if (!opt) return;
+                const newLang = opt.getAttribute('data-lang');
+                if (newLang && newLang !== currentLang) {
+                    currentLang = newLang;
+                    applyLanguage();
+                }
+            });
+
+            // ==================== DONUT CHART ====================
+            function getDonutData() {
+                return getT('donutSegments');
+            }
+
+            function drawDonutChart(progressOverride = null) {
+                const canvas = donutCanvas;
+                const ctx = donutCtx;
+                const w = canvas.width;
+                const h = canvas.height;
+                const cx = w / 2;
+                const cy = h / 2;
+                const outerR = 110;
+                const innerR = 62;
+                const segments = getDonutData();
+                const total = segments.reduce((sum, s) => sum + s.pct, 0);
+                const progress = progressOverride !== null ? progressOverride : donutAnimProgress;
+
+                ctx.clearRect(0, 0, w, h);
+
+                // Shadow
+                ctx.save();
+                ctx.shadowColor = 'rgba(0,0,0,0.08)';
+                ctx.shadowBlur = 20;
+                ctx.shadowOffsetY = 4;
+                ctx.beginPath();
+                ctx.arc(cx, cy, outerR, 0, Math.PI * 2);
+                ctx.fillStyle = '#FFFFFF';
+                ctx.fill();
+                ctx.restore();
+
+                let startAngle = -Math.PI / 2;
+
+                segments.forEach((seg, i) => {
+                    const segAngle = (seg.pct / total) * Math.PI * 2 * progress;
+                    const endAngle = startAngle + segAngle;
+
+                    const isHovered = donutHoveredIndex === i;
+                    const hoverOffset = isHovered ? 8 : 0;
+                    const midAngle = startAngle + segAngle / 2;
+                    const hx = cx + Math.cos(midAngle) * hoverOffset;
+                    const hy = cy + Math.sin(midAngle) * hoverOffset;
+
+                    ctx.beginPath();
+                    ctx.arc(hx, hy, outerR, startAngle, endAngle);
+                    ctx.arc(hx, hy, innerR, endAngle, startAngle, true);
+                    ctx.closePath();
+                    ctx.fillStyle = isHovered ? donutColorsHover[i] : donutColors[i];
+                    ctx.fill();
+
+                    // Subtle border between segments
+                    ctx.lineWidth = 1.5;
+                    ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+                    ctx.stroke();
+
+                    startAngle = endAngle;
+                });
+
+                // Center hole shadow
+                ctx.beginPath();
+                ctx.arc(cx, cy, innerR - 1, 0, Math.PI * 2);
+                ctx.fillStyle = '#FFFFFF';
+                ctx.shadowColor = 'rgba(0,0,0,0.04)';
+                ctx.shadowBlur = 8;
+                ctx.shadowOffsetY = 2;
+                ctx.fill();
+                ctx.shadowColor = 'transparent';
+                ctx.shadowBlur = 0;
+                ctx.shadowOffsetY = 0;
+
+                // Center text
+                ctx.fillStyle = '#1E293B';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                if (donutHoveredIndex >= 0 && donutHoveredIndex < segments.length) {
+                    const hs = segments[donutHoveredIndex];
+                    ctx.font = '700 13px "Inter","Cairo",sans-serif';
+                    ctx.fillStyle = '#64748B';
+                    ctx.fillText(hs.label, cx, cy - 14);
+                    ctx.font = '900 28px "Inter","Cairo",sans-serif';
+                    ctx.fillStyle = donutColors[donutHoveredIndex];
+                    ctx.fillText(hs.pct + '%', cx, cy + 16);
+                } else {
+                    ctx.font = '600 12px "Inter","Cairo",sans-serif';
+                    ctx.fillStyle = '#64748B';
+                    ctx.fillText(getT('donutCenter'), cx, cy - 8);
+                    ctx.font = '900 26px "Inter","Cairo",sans-serif';
+                    ctx.fillStyle = '#1E293B';
+                    ctx.fillText('100%', cx, cy + 18);
+                }
+
+                // Update legend
+                updateLegend(segments);
+            }
+
+            function updateLegend(segments) {
+                donutLegend.innerHTML = '';
+                segments.forEach((seg, i) => {
+                    const item = document.createElement('div');
+                    item.className = 'donut-legend-item';
+                    item.innerHTML = `
+                <span class="legend-dot dot-${['indigo','cyan','amber','pink'][i]}"></span>
+                <span>${seg.label}</span>
+                <span class="legend-percent">${seg.pct}%</span>
+              `;
+                    item.addEventListener('mouseenter', () => {
+                        donutHoveredIndex = i;
+                        drawDonutChart();
+                    });
+                    item.addEventListener('mouseleave', () => {
+                        donutHoveredIndex = -1;
+                        drawDonutChart();
+                    });
+                    item.addEventListener('click', () => {
+                        donutHoveredIndex = donutHoveredIndex === i ? -1 : i;
+                        drawDonutChart();
+                    });
+                    donutLegend.appendChild(item);
+                });
+            }
+
+            // Canvas mouse tracking
+            donutCanvas.addEventListener('mousemove', (e) => {
+                const rect = donutCanvas.getBoundingClientRect();
+                const scaleX = donutCanvas.width / rect.width;
+                const scaleY = donutCanvas.height / rect.height;
+                const mx = (e.clientX - rect.left) * scaleX;
+                const my = (e.clientY - rect.top) * scaleY;
+                const cx = donutCanvas.width / 2;
+                const cy = donutCanvas.height / 2;
+                const dist = Math.sqrt((mx - cx) ** 2 + (my - cy) ** 2);
+                const outerR = 110;
+                const innerR = 62;
+
+                if (dist > outerR || dist < innerR) {
+                    if (donutHoveredIndex !== -1) {
+                        donutHoveredIndex = -1;
+                        drawDonutChart();
+                    }
+                    return;
+                }
+
+                let angle = Math.atan2(my - cy, mx - cx);
+                if (angle < -Math.PI / 2) angle += Math.PI * 2;
+                let normalizedAngle = angle + Math.PI / 2;
+                if (normalizedAngle < 0) normalizedAngle += Math.PI * 2;
+
+                const segments = getDonutData();
+                const total = segments.reduce((s, seg) => s + seg.pct, 0);
+                let cumAngle = 0;
+                let found = -1;
+                for (let i = 0; i < segments.length; i++) {
+                    const segAngle = (segments[i].pct / total) * Math.PI * 2;
+                    if (normalizedAngle >= cumAngle && normalizedAngle < cumAngle + segAngle) {
+                        found = i;
+                        break;
+                    }
+                    cumAngle += segAngle;
+                }
+                if (found !== donutHoveredIndex) {
+                    donutHoveredIndex = found;
+                    drawDonutChart();
+                }
+            });
+
+            donutCanvas.addEventListener('mouseleave', () => {
+                if (donutHoveredIndex !== -1) {
+                    donutHoveredIndex = -1;
+                    drawDonutChart();
+                }
+            });
+
+            // Touch support
+            donutCanvas.addEventListener('touchstart', (e) => {
+                if (e.touches.length === 1) {
+                    const touch = e.touches[0];
+                    const rect = donutCanvas.getBoundingClientRect();
+                    const scaleX = donutCanvas.width / rect.width;
+                    const scaleY = donutCanvas.height / rect.height;
+                    const mx = (touch.clientX - rect.left) * scaleX;
+                    const my = (touch.clientY - rect.top) * scaleY;
+                    const cx = donutCanvas.width / 2;
+                    const cy = donutCanvas.height / 2;
+                    const dist = Math.sqrt((mx - cx) ** 2 + (my - cy) ** 2);
+                    if (dist <= 110 && dist >= 62) {
+                        let angle = Math.atan2(my - cy, mx - cx);
+                        if (angle < -Math.PI / 2) angle += Math.PI * 2;
+                        let nAngle = angle + Math.PI / 2;
+                        if (nAngle < 0) nAngle += Math.PI * 2;
+                        const segments = getDonutData();
+                        const total = segments.reduce((s, seg) => s + seg.pct, 0);
+                        let cumAngle = 0;
+                        for (let i = 0; i < segments.length; i++) {
+                            const segAngle = (segments[i].pct / total) * Math.PI * 2;
+                            if (nAngle >= cumAngle && nAngle < cumAngle + segAngle) {
+                                donutHoveredIndex = donutHoveredIndex === i ? -1 : i;
+                                drawDonutChart();
+                                break;
+                            }
+                            cumAngle += segAngle;
+                        }
+                    }
+                }
+            });
+
+            function animateDonutIn() {
+                if (donutAnimId) cancelAnimationFrame(donutAnimId);
+                donutAnimProgress = 0;
+                const duration = 1200;
+                const startTime = performance.now();
+
+                function step(ts) {
+                    const elapsed = ts - startTime;
+                    const t = Math.min(elapsed / duration, 1);
+                    // Ease-out cubic
+                    const eased = 1 - Math.pow(1 - t, 3);
+                    donutAnimProgress = eased;
+                    drawDonutChart(eased);
+                    if (t < 1) {
+                        donutAnimId = requestAnimationFrame(step);
+                    } else {
+                        donutAnimProgress = 1;
+                        drawDonutChart(1);
+                        donutAnimId = null;
+                    }
+                }
+                donutAnimId = requestAnimationFrame(step);
+            }
+
+            // ==================== BAR CHART ====================
+            function buildBarChart() {
+                const months = getT('barMonths');
+                const values = translations[currentLang].barValues;
+                barChartContainer.innerHTML = '';
+                values.forEach((val, i) => {
+                    const group = document.createElement('div');
+                    group.className = 'bar-group';
+                    group.innerHTML = `
+                <span class="bar-value-label">${val}</span>
+                <div class="bar-fill bar-${i+1}" style="height:0px;" data-height="${val * 2.4}px"></div>
+                <span class="bar-month-label">${months[i]}</span>
+              `;
+                    barChartContainer.appendChild(group);
+                });
+                // Animate bars in
+                setTimeout(() => {
+                    const bars = barChartContainer.querySelectorAll('.bar-fill');
+                    bars.forEach(bar => {
+                        bar.style.height = bar.getAttribute('data-height');
+                    });
+                }, 200);
+            }
+
+            // ==================== COUNTERS ====================
+            function animateCounter(el) {
+                const target = parseInt(el.getAttribute('data-target'));
+                const prefix = el.getAttribute('data-prefix') || '';
+                const suffix = el.getAttribute('data-suffix') || '';
+                const format = el.getAttribute('data-format') || '';
+                const duration = 1800;
+                const startTime = performance.now();
+                const startVal = 0;
+
+                function step(ts) {
+                    const elapsed = ts - startTime;
+                    const t = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - t, 4);
+                    const current = Math.round(startVal + (target - startVal) * eased);
+                    if (format === 'compact') {
+                        if (current >= 1000) {
+                            el.textContent = prefix + (current / 1000).toFixed(1) + 'K' + suffix;
+                        } else {
+                            el.textContent = prefix + current.toLocaleString() + suffix;
+                        }
+                    } else {
+                        el.textContent = prefix + current.toLocaleString() + suffix;
+                    }
+                    if (t < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        if (format === 'compact' && target >= 1000) {
+                            el.textContent = prefix + (target / 1000).toFixed(1) + 'K' + suffix;
+                        } else {
+                            el.textContent = prefix + target.toLocaleString() + suffix;
+                        }
+                    }
+                }
+                requestAnimationFrame(step);
+            }
+
+            function resetCounters() {
+                counterEls.forEach(el => {
+                    el.textContent = '0';
+                });
+                // Re-trigger animation
+                setTimeout(() => {
+                    if (isInViewport(statsRow)) {
+                        counterEls.forEach(el => animateCounter(el));
+                    }
+                }, 300);
+            }
+
+            function isInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return rect.top < window.innerHeight - 50 && rect.bottom > 0;
+            }
+
+            // ==================== INTERSECTION OBSERVER ====================
+            let countersAnimated = false;
+            let donutAnimated = false;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target === statsRow && !countersAnimated) {
+                            countersAnimated = true;
+                            counterEls.forEach(el => animateCounter(el));
+                        }
+                        if (entry.target === donutCanvas && !donutAnimated) {
+                            donutAnimated = true;
+                            animateDonutIn();
+                        }
+                        if (entry.target === barChartContainer && !donutAnimated) {
+                            // Build bar chart when it comes into view
+                            if (barChartContainer.children.length === 0) {
+                                buildBarChart();
+                            }
+                        }
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            observer.observe(statsRow);
+            observer.observe(donutCanvas);
+            observer.observe(barChartContainer);
+
+            // ==================== INIT ====================
+            function init() {
+                applyLanguage();
+                drawDonutChart(0);
+                updateSliderPosition();
+
+                // Initial draw of donut with 0 progress
+                donutAnimProgress = 0;
+                drawDonutChart(0);
+
+                // If stats row is already in view, animate immediately
+                if (isInViewport(statsRow) && !countersAnimated) {
+                    countersAnimated = true;
+                    counterEls.forEach(el => animateCounter(el));
+                }
+                if (isInViewport(donutCanvas) && !donutAnimated) {
+                    donutAnimated = true;
+                    animateDonutIn();
+                }
+                if (isInViewport(barChartContainer) && barChartContainer.children.length === 0) {
+                    buildBarChart();
+                }
+            }
+
+            // Handle window resize for slider position
+            window.addEventListener('resize', () => {
+                updateSliderPosition();
+                drawDonutChart();
+            });
+
+            // Initialize
+            init();
+
+            console.log('%c🚀 MarketPulse Infographic Ready %c| %cEN 🇬🇧 / AR 🇸🇦',
+                'font-weight:bold;color:#4F46E5;', '', 'color:#F59E0B;');
+            console.log('%cInteractive Donut Chart • Animated Counters • Bar Chart • Language Switch',
+                'color:#64748B;font-size:12px;');
+        })();
+    </script>
+</body>
+</html>
